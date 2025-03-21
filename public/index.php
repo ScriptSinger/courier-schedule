@@ -7,8 +7,8 @@ use Core\Router;
 // Инициализация маршрутизатора
 $router = new Router();
 
-// Подключение файла с определениями маршрутов
-require __DIR__ . '/../routes/api.php';
+require __DIR__ . '/../routes/api.php';  // API маршруты
+require __DIR__ . '/../routes/web.php';  // Веб маршруты
 
 // Получение текущего URI и метода запроса
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

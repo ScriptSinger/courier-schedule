@@ -33,4 +33,5 @@ INSERT INTO regions (name, travel_days) VALUES
 ('Самара', 3),
 ('Астрахань', 5);
 
+
 SET FOREIGN_KEY_CHECKS = 1;

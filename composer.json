@@ -1,9 +1,9 @@
 {
     "autoload": {
-    "psr-4": {
-        "App\\": "app/",
-        "Core\\": "core/"
- 
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/",
+            "App\\Controllers\\Api\\": "app/Controllers/Api/"
+        }
     }
-}
 }

@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Core\\' => array($baseDir . '/core'),
+    'App\\Controllers\\Api\\' => array($baseDir . '/app/Controllers/Api'),
     'App\\' => array($baseDir . '/app'),
 );

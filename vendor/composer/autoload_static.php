@@ -13,6 +13,7 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         ),
         'A' => 
         array (
+            'App\\Controllers\\Api\\' => 20,
             'App\\' => 4,
         ),
     );
@@ -21,6 +22,10 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         'Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core',
+        ),
+        'App\\Controllers\\Api\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Controllers/Api',
         ),
         'App\\' => 
         array (

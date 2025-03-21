@@ -47,16 +47,4 @@ class DatabaseConnection
         $stmt->execute($params);
         return $stmt;
     }
-
-    // public function getAll(string $sql, array $params = []): array
-    // {
-    //     return $this->query($sql, $params)->fetchAll();
-    // }
-
-    // public function getOne(string $sql, array $params = []): mixed
-    // {
-    //     return $this->query($sql, $params)->fetch();
-    // }
-
-
 }
