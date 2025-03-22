@@ -44,7 +44,6 @@ class ScheduleController extends  Controller
         // Добавляем вычисленную дату прибытия в массив данных
         $data['arrival_date'] = $arrivalDate;
 
-
         // Проверяем, не занят ли курьер в этот период для указанного региона
         if (Schedule::isCourierBusy($data['courier_id'], $data['region_id'], $data['departure_date'], $arrivalDate)) {
             return $this->jsonResponse([
@@ -52,20 +51,13 @@ class ScheduleController extends  Controller
             ], 400); // Код 400 - Bad Request
         }
 
-
         $result = Schedule::create($data);
-
 
         return $this->jsonResponse([
             'message' => 'Поездка успешно добавлена.',
             'data' => $result
         ], 201); // Код 201 - Created
     }
-
-
-
-
-
 
 
     // Метод для получения расписания по дате выезда

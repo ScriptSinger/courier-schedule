@@ -4,8 +4,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 -- Очистка таблиц перед вставкой (если данные уже есть)
 TRUNCATE TABLE couriers;
-TRUNCATE TABLE regions;
-TRUNCATE TABLE schedule;
+TRUNCATE TABLE regions; 
 
 -- Наполнение таблицы курьеров (10 человек)
 INSERT INTO couriers (name) VALUES 
@@ -32,6 +31,32 @@ INSERT INTO regions (name, travel_days) VALUES
 ('Воронеж', 2),
 ('Самара', 3),
 ('Астрахань', 5);
+
+
+
+-- Очистка таблицы перед вставкой (если данные уже есть)
+TRUNCATE TABLE schedule;
+
+-- Заполнение данными о поездках за последние 3 месяца
+INSERT INTO schedule (courier_id, region_id, departure_date, arrival_date)
+SELECT 
+    c.id AS courier_id,
+    r.id AS region_id,
+    DATE_ADD(CURDATE(), INTERVAL -FLOOR(RAND() * 90) DAY) AS departure_date,
+    DATE_ADD(CURDATE(), INTERVAL -FLOOR(RAND() * 90) + r.travel_days DAY) AS arrival_date
+FROM couriers c
+JOIN regions r 
+ON RAND() < 0.5 -- 50% вероятность поездки в этот регион
+ORDER BY RAND()
+LIMIT 100; -- Можно увеличить число записей при необходимости
+
+
+
+
+
+
+
+
 
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -9,8 +9,6 @@ class Schedule
     public static function all()
     {
         $db = DatabaseConnection::getInstance();
-
-        // SQL-запрос с JOIN, чтобы получить данные о курьере и регионе
         $sql = "
             SELECT 
                 s.id, 
@@ -27,10 +25,6 @@ class Schedule
         return $stmt->fetchAll();
     }
 
-
-
-
-
     public static function find($id)
     {
         $db = DatabaseConnection::getInstance();
@@ -38,9 +32,6 @@ class Schedule
         $stmt = $db->query($sql, [$id]);
         return $stmt->fetch();
     }
-
-
-
 
     public static function isCourierBusy($courierId, $departureDate, $arrivalDate)
     {
@@ -77,11 +68,8 @@ class Schedule
         $db = DatabaseConnection::getInstance();
         $sql = 'INSERT INTO schedule (courier_id, region_id, departure_date, arrival_date) VALUES (?, ?, ?, ?)';
         $stmt = $db->query($sql, array_values($data));
-
-
         return $stmt->rowCount() > 0;
     }
-
 
     public static function delete($id)
     {
@@ -92,12 +80,6 @@ class Schedule
 
         return true;
     }
-
-
-
-
-
-
 
     public static function getByDepartureDate($date)
     {
